@@ -1,0 +1,18 @@
+将以下方法合并到 app/Models/User.php：
+
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+public function conversations(): HasMany
+{
+    return $this->hasMany(Conversation::class);
+}
+
+public function apiKeys(): HasMany
+{
+    return $this->hasMany(ApiKey::class);
+}
+
+public function usageRecords(): HasMany
+{
+    return $this->hasMany(UsageRecord::class);
+}

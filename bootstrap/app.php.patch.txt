@@ -1,0 +1,12 @@
+在 Laravel 11/12 的 bootstrap/app.php 中，将 middleware 配置合并到现有 withMiddleware 回调：
+
+use App\Http\Middleware\AuthenticatePlatformKey;
+use Illuminate\Foundation\Configuration\Middleware;
+
+->withMiddleware(function (Middleware $middleware) {
+    $middleware->alias([
+        'auth.platform_key' => AuthenticatePlatformKey::class,
+    ]);
+})
+
+不要直接覆盖你原有的 bootstrap/app.php。
